@@ -12,7 +12,7 @@ class Grass extends Component {
     checkGrass() {
         const {data} =this.props
         this.props.catchPokemon(data.map, data.sprites.font_default)
-        this.props.refershFn()
+        this.props.refreshFn()
     }
 
 
