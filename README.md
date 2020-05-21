@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pokemon Catching App
 
-## Available Scripts
+## Application Concept and Wireframe
+### Application Concept
+- This is a pokemon catching app
+- We will be utilizing the pokeAPI for the pokemon data.
+- Full CRUD
+    - GET: get all pokemon.
+    - POST: Caught Pokemon will be posted to our array.
+    - PUT: Give the pokemon a name.
+    - DELETE: Release the Pokemon back into the wild.
 
-In the project directory, you can run:
+### Functionality
+- We want a header at the top of the page to display the name of our app.
+- When the app loads, three images of grass will be loaded on the screen.
+    - When the grass is clicked we will reveal a wild Pokemon.
+- Once we select a Pokemon, we will push that Pokemon to our pokedex.
+- The pokedex will show the new caught Pokemon.
+- The pokedex will show the name of the caught Pokemon.
+- The pokedexc will have a button to release the Pokemon.
+- The pokedex will update when the pokemon is released.
 
-### `npm start`
+### Endpoints 
+- GET - Fetch 3 random Pokemon from pokeAPI (retrieve it on front/back).
+- GET - Fetch our pokedex.
+- POST - Push caught Pokemon to our pokedex.
+- PUT - Change Pokemon name.
+- DELETE - delete our pokemon from our pokedex.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Componenet Architecture
+- App.js (stateful: hold our caught pokemon information, this.state.caughtPokemon)
+    - Header.js (functional)
+    - Finder.js (stateful: axios request to fetch the 3 wild Pokemon)
+        -Grass.js (stateful: this.state.grassClicked)
+    - Pokedex.js (functional)
+        -Pokemon.js (stateful: this.state.name, this.state.editing)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Wireframe
+<img src="./screenshots/capture1.PNG">
+<img src="./screenshots/Capture2.PNG">
