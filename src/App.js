@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from './components/Header';
 import Finder from './components/Finder';
 import Pokedex from './components/Pokedex';
+import axios from 'axios'
 import './App.css';
 
 class App extends Component {
@@ -17,15 +18,35 @@ class App extends Component {
     this.releasePokemon = this.releasePokemon.bind(this)
   }
 
-  componentDidMount() {}
-  catchPokemon() {}
-  saveName(id, newName) {}
-  releasePokemon(id) {}
+  componentDidMount() {
+    axios.get('/api/pokemon').then(response => {
+      this.setState({caughtPokemon: response.data})
+    })
+  }
+
+  catchPokemon(name, image) {
+    const body = {name, image}
+    axios.post('/api/pokemon', body).then(response => {
+      this.setState({caughtPokemon: response.data})
+    })
+  }
+
+  saveName(id, newName) {
+    const body = {newName}
+    axios.put(`/api/pokemon/${id}`, body).then(response => {
+      this.setState({caughtPokemon: response.data})
+    })
+  }
+
+  releasePokemon(id) {
+    axios.delete(`/api/pokemon/${id}`).then(response => {
+      this.setState({caughtPokemon: response.data})
+    })
+  }
 
   render() {
     return (
       <div className="App">
-          <h1>Catch a Pokemon Application Review</h1>
           <Header />
           <Finder catchPokemon= {this.catchPokemon} />
           <Pokedex 
